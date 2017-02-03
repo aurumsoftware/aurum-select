@@ -1,0 +1,142 @@
+/*********************************************************************/
+/* General */
+/*********************************************************************/
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 10px;
+	background-color:#fff;
+	color: #454a52;
+}
+
+.main {padding-top: 130px;}
+p {line-height: 1.4em;}
+
+/***********************************************************/
+/* .wrapper */
+/***********************************************************/
+.wrapper {
+	max-width: 1000px;
+	position: relative;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.wrapper.mw500 {max-width: 500px;}
+
+/***********************************************************/
+/* link style */
+/***********************************************************/
+a,
+.link {color: #19C4BA;}
+
+a:hover,
+.link:hover {
+	color: #19C4BA;
+	text-decoration: underline;
+}
+
+.theExample {
+	margin-bottom: 50px;
+}
+
+/*********************************************************************/
+/* .exampleHeader */
+/*********************************************************************/
+.exampleHeader {
+	padding: 50px 0;
+	margin-bottom: 50px;
+	color: #fff;
+	box-shadow: 0 1px 2px rgba(0,0,0, 0.4);
+	background: #131313;
+	background: -moz-linear-gradient(-45deg,  #131313 0%, #4c4c4c 100%);
+	background: -webkit-linear-gradient(-45deg,  #131313 0%,#4c4c4c 100%);
+	background: linear-gradient(135deg,  #131313 0%,#4c4c4c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#4c4c4c',GradientType=1 );
+}
+
+.exampleHeader .wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.exampleHeader h1 {
+	font-size: 30px;
+	font-weight: 100 !important;
+	display: inline-block;
+	margin-right: 10px;
+}
+.exampleHeader h1 strong {
+	font-style: italic;
+	font-weight: 100;
+	color: rgb(40, 192, 255);
+	text-shadow: 0 0 40px rgba(40, 192, 255, 1);
+}
+.exampleHeader .multiselect,
+.exampleHeader .dropdown {
+	font-weight: 100;
+	font-size: 18px;
+	display: inline-block;
+	margin-left: 50px;
+	opacity: .5;
+}
+.exampleHeader .multiselect:hover,
+.exampleHeader .dropdown:hover {
+	opacity: 1;
+}
+.exampleHeader .multiselect strong {
+	font-style: italic;
+	color: rgb(42, 247, 233);
+	text-shadow: 0 0 40px rgb(42, 247, 233);
+}
+.exampleHeader .dropdown strong {
+	font-style: italic;
+	color: rgb(44, 244, 171);
+	text-shadow: 0 0 40px rgb(44, 244, 171);
+}
+
+/*********************************************************************/
+/* .content */
+/*********************************************************************/
+.content {margin-bottom: 50px;}
+
+.exampleFeedback {
+	padding: 20px;
+	border-radius: 3px;
+	font-size: 2em;
+	font-weight: 100;
+	background-color: rgba(0,0,0, 0.05);
+	box-shadow: 0 0 5px rgba(0,0,0, 0.2) inset;
+}
+
+.theExample h2 {
+	font-size: 2em;
+	margin-bottom: 10px
+}
+
+.theExample h3 {
+	font-size: 1.5em;
+	margin: 20px 0 10px;
+}
+
+/*********************************************************************/
+/* .exampleFooter */
+/*********************************************************************/
+.exampleFooter {
+	padding-bottom: 30px;
+}
+
+.exampleFooter p {
+	font-size: 1.4em;
+	text-align: center;
+}
+
+.exampleFooter p:first-child {margin-bottom: 10px;}
+
+.exampleFooter .fa-heart {
+	font-size: 1.5em;
+	color: red;
+	text-shadow: 1px 1px 0 rgba(0,0,0, 0.8);
+	cursor: default;
+}
+
+.exampleFooter strong {font-weight: normal;}

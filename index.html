@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8"/>
+	<title>aurum-select: Aurum Software</title>
+
+	<!--[if lte IE 8]>
+	<script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+
+	<!-- Metas -->
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="author" content="Aurum" />
+	<meta name="rating" content="general" />
+	<meta name="dcterms.rights" content="Aurum" />
+	<meta name="Copyright" content="Aurum" />
+	<meta name="dcterms.dateCopyrighted" content="2017" />
+	<meta name="revisit-after" content="1 month" />
+	<link rel="canonical" href="http://aurum.com.br/" />
+	<meta name="google-site-verification" content="" />
+
+	<!-- Meta related to language -->
+	<meta name="description" content="" />
+	<meta name="keywords" content=""/>
+
+	<!-- Web Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="bower_components/acResetCSS/acReset.css">
+	<link rel="stylesheet" href="dist/aurum-select.min.css">
+
+	<!-- styles used in our example. You dont need to lnk it :) -->
+	<link rel="stylesheet" href="css/example.css"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Standart Favicon -->
+	<link rel="shortcut icon" type="image/png" href="http://www.aurum.com.br/wp-content/themes/aurum/favicon.png?v=2"/>
+
+	<!-- Facebook -->
+	<meta property="og:type" content="website"/>
+	<meta property="og:image" content="http://www.aurum.com.br/wp-content/themes/aurum/favicon.png?v=2"/>
+
+	<!-- Meta related to language -->
+	<meta property="og:site_name" content="Aurum - Software"/>
+	<meta property="og:title" content="Aurum - Software"/>
+	<meta property="og:url" content=""/>
+	<meta property="og:description" content="E"/>
+</head>
+
+<body ng-app="aurumSelectDemo" ng-cloak>
+
+<section class="example">
+	<header class="exampleHeader">
+		<div class="wrapper">
+			<h1 class="select">aurum<strong>-select</strong></h1>
+			<h2 class="multiselect">aurum<strong>-multiselect</strong></h2>
+			<h2 class="dropdown">aurum<strong>-dropdown</strong></h2>
+		</div><!-- End .wrapper -->
+		<!-- Github ribbon -->
+		<a href="https://github.com/aurumsoftware/arMultiselect">
+			<img 
+				style="position: absolute; top: 0; right: 0; border: 0;"
+				src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
+				alt="Fork me on GitHub"
+				data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+			/>
+		</a>
+	</header><!-- /header -->
+
+	<div class="content">
+		<div class="wrapper">
+
+			<div ng-controller="aurumSelectDemoCtrl" class="theExample">
+				<h2>Select whith search</h2>
+
+				<aurum-select
+					options="mydata"
+					selected-model="mymodel"
+					placeholder="Selecione um nome"
+					search="Filtrar nomes..."
+					class="arSelect"
+					ng-disabled="false"
+				></aurum-select>
+					
+				<h3>Object</h3>
+				<div class="exampleFeedback">
+					{{mydata}}
+				</div><!-- End .exampleFeedback -->
+
+				<h3>Selected item</h3>
+				<div class="exampleFeedback">
+					{{mymodel}}
+				</div><!-- End .exampleFeedback -->
+			</div><!-- End ac-dropdown-multiselect -->
+
+			<div ng-controller="aurumSelectDemoCtrl" class="theExample">
+				<h2>Select whithout search</h2>
+
+				<aurum-select
+					options="mydata"
+					selected-model="mymodel"
+					placeholder="Selecione um nome"
+					class="arSelect"
+					ng-disabled="false"
+				></aurum-select>
+
+				<h3>Object</h3>
+				<div class="exampleFeedback">
+					{{mydata}}
+				</div><!-- End .exampleFeedback -->
+
+				<h3>Selected item</h3>
+				<div class="exampleFeedback">
+					{{mymodel}}
+				</div><!-- End .exampleFeedback -->
+			</div><!-- End ac-dropdown-multiselect -->
+
+		</div><!-- End .wrapper -->
+	</div><!-- End .content -->
+
+	<footer class="exampleFooter">
+		<div class="wrapper">
+			<p>This project is forket from <a target="_blank" href="https://github.com/Aerochimps/acMultiselect">Aerochimps/acMultiselectt</a> and maintened by <a target="_blank" href="http://aurum.com.br">Aurum</a></p>
+			<p>Forked and held with <i class="fa fa-heart" alt="Loooooooooooooooooove" title="Loooooooooooooooooove"></i> in <strong>Florianópolis</strong>, Brasil.</p>
+		</div><!-- End .wrapper -->
+	</footer><!-- End .exampleFooter -->
+
+</section><!-- End .example -->
+
+	<!-- Scripts! :) -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+	<script src="dist/aurum-select.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

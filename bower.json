@@ -1,0 +1,34 @@
+{
+	"name": "aurum-select",
+	"version": "1.0.0",
+	"authors": [
+		"Felipe Campos <felipe.campos@aurum.com.br>"
+	],
+	"description": "AngularJS Select directive",
+	"keywords": [
+		"angular",
+		"angularjs",
+		"directive",
+		"dropdown",
+		"select",
+		"list",
+		"bootstrap"
+	],
+	"license": "MIT",
+	"main": ["dist/aurum-select.min.js","dist/aurum-select.min.css"],
+	"ignore": [
+		"app",
+		"dist",
+		"test",
+		".*",
+		"Gruntfile.js",
+		"package.json"
+	],
+	"dependencies": {
+		"angular": "~1.3.0",
+		"lodash": "2.4.1",
+		"jquery": "~2.1.3",
+		"bootstrap": "~3.3.2",
+		"acResetCSS": ""
+	}
+}

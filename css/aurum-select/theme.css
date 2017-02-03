@@ -1,0 +1,42 @@
+/*********************************************************************/
+/* .arSelect */
+/*********************************************************************/
+.arSelect .arButton {background-color: rgba(255,255,255, 1);}
+.arSelect .active .arButton {border-radius: 3px 3px 0 0;}
+
+/***********************************************************/
+/* .dropdown-menu */
+/***********************************************************/
+.arSelect .dropdown-menu  {
+	border-color: #656D78;
+	border-radius: 0 0 3px 3px;
+	background-color: rgba(255,255,255, 1);
+}
+
+/***********************************************************/
+/* .menu-item */
+/***********************************************************/
+
+.arSelect .menu-item {
+	color: #0073B1;
+}
+.arSelect .menu-item:hover {
+	background-color: #eaeaea;
+}
+.arSelect .menu-item.selected {
+	color: #fff;
+	background-color:#0073B1;
+}
+
+/***********************************************************/
+/* .selectInfo */
+/***********************************************************/
+.arSelect .selectInfo a,
+.arSelect .selectInfo a:hover {color: #000;}
+
+/*********************************************************************/
+/* .arButtonGroup */
+/*********************************************************************/
+.arButtonGroup .arSelect .arButton {border-radius: 0;}
+.arButtonGroup .arSelect:first-child button {border-radius: 4px 0 0 4px;}
+.arButtonGroup .arSelect:last-child button {border-radius: 0 4px 4px 0;}
