@@ -2,6 +2,10 @@
 	"name": "aurum-select",
 	"version": "1.0.0",
 	"authors": [
+		"Gustavo Maestri <gustavo@aerochimps.com>",
+		"Idmar Ramos Junior <idmarjr@aerochimps.com>",
+		"Felipe Borges <felipe@aerochimps.com>",
+		"Marcela Quint <marcela@aerochimps.com>",
 		"Felipe Campos <felipe.campos@aurum.com.br>"
 	],
 	"description": "AngularJS Select directive",

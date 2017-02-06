@@ -10,6 +10,25 @@ var jsFiles 	= 'js/aurum-select.js';
 var cssFiles 	= 'css/aurum-select/*.css';
 var dest 		= 'dist/';
 
+var vendorJs	= [
+	'bower_components/angular/angular.js',
+	'bower_components/jquery/dist/jquery.js',
+	'bower_components/bootstrap/dist/js/bootstrap.js',
+	'bower_components/lodash/dist/lodash.compat.js'
+]
+var vendorCss	= 'bower_components/acResetCSS/acReset.css';
+
+gulp.task( 'vendors', function() {
+	gulp.src( vendorJs )
+		.pipe( concat( 'vendors.min.js' ) )
+		.pipe( uglify() )
+		.pipe( gulp.dest( 'vendors/' ) );
+	gulp.src( vendorCss )
+		.pipe( concat( 'vendors.min.css' ) )
+		.pipe( cssmin() )
+		.pipe( gulp.dest( 'vendors/' ) );
+});
+
 gulp.task( 'scripts', function() {
 	gulp.src( jsFiles )
 		.pipe( uglify() )
@@ -35,10 +54,10 @@ gulp.task( 'server', function() {
 });
 
 gulp.task( 'clean', function() {
-	return del.sync( dest );
+	return del.sync( [dest, 'vendors/'] );
 });
 
-gulp.task( 'default', ['clean', 'styles', 'scripts', 'server']);
+gulp.task( 'default', ['clean', 'vendors', 'styles', 'scripts', 'server']);
 
 gulp.task( 'watch', function() {
 	gulp.watch( jsFiles, ['scripts'] );

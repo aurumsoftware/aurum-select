@@ -28,7 +28,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="bower_components/acResetCSS/acReset.css">
+	<link rel="stylesheet" href="vendors/vendors.min.css">
 	<link rel="stylesheet" href="dist/aurum-select.min.css">
 
 	<!-- styles used in our example. You dont need to lnk it :) -->
@@ -55,11 +55,12 @@
 	<header class="exampleHeader">
 		<div class="wrapper">
 			<h1 class="select">aurum<strong>-select</strong></h1>
-			<h2 class="multiselect">aurum<strong>-multiselect</strong></h2>
-			<h2 class="dropdown">aurum<strong>-dropdown</strong></h2>
+			<h2 class="multiselect">
+				<a href="https://github.com/aurumsoftware/aurum-multiselect">aurum<strong>-multiselect</strong></a>
+			</h2>
 		</div><!-- End .wrapper -->
 		<!-- Github ribbon -->
-		<a href="https://github.com/aurumsoftware/arMultiselect">
+		<a href="https://github.com/aurumsoftware/aurum-select">
 			<img 
 				style="position: absolute; top: 0; right: 0; border: 0;"
 				src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
@@ -73,13 +74,14 @@
 		<div class="wrapper">
 
 			<div ng-controller="aurumSelectDemoCtrl" class="theExample">
-				<h2>Select whith search</h2>
+				<h2>Select with search and don't dynamic title</h2>
 
 				<aurum-select
 					options="mydata"
 					selected-model="mymodel"
 					placeholder="Selecione um nome"
 					search="Filtrar nomes..."
+					dynamic-title="false"
 					class="arSelect"
 					ng-disabled="false"
 				></aurum-select>
@@ -96,7 +98,7 @@
 			</div><!-- End ac-dropdown-multiselect -->
 
 			<div ng-controller="aurumSelectDemoCtrl" class="theExample">
-				<h2>Select whithout search</h2>
+				<h2>Select without search and dynamic title</h2>
 
 				<aurum-select
 					options="mydata"
@@ -130,11 +132,7 @@
 </section><!-- End .example -->
 
 	<!-- Scripts! :) -->
-	<script src="bower_components/jquery/dist/jquery.js"></script>
-	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/lodash/dist/lodash.compat.js"></script>
-	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
+	<script src="vendors/vendors.min.js"></script>
 	<script src="dist/aurum-select.min.js"></script>
 	<script src="js/app.js"></script>
 </body>

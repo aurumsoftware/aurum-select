@@ -13,6 +13,7 @@
           events: '=',
           search: '@',
           placeholder: '@',
+          dynamicTitle: '@',
           ngDisabled: '='
         },
 
@@ -35,16 +36,25 @@
 
         link: function (scope, element, attributes) {
 
+          if ( attributes.dynamicTitle === 'false' ) {
+            scope.dynamicTitle = false;
+          } else {
+            scope.dynamicTitle = true;
+          }
+
           scope.settings = {
             displayProp: 'label',
             idProp: 'id',
             externalIdProp: 'id',
-            buttonClasses: 'btn btn-default'
+            buttonClasses: 'btn btn-default',
+            dynamicTitle: scope.dynamicTitle,
+            smartButtonTextConverter: angular.noop
           };
 
           scope.texts = {
             searchPlaceholder: attributes.search,
-            buttonDefaultText: attributes.placeholder || 'Select'
+            buttonDefaultText: attributes.placeholder || 'Select',
+            dynamicButtonTextSuffix: 'checked'
           };
 
           scope.externalEvents = {
@@ -61,13 +71,11 @@
           var dropdownTrigger = element.children()[0];
           
           scope.toggleDropdown = function () {
-              scope.open = !scope.open;
-
-              
-                $timeout( function(){
-                  element[0].querySelector('.form-control').focus();
-                }, 200 );
-              
+            scope.open = !scope.open;
+            
+            $timeout( function(){
+              element[0].querySelector('.form-control').focus();
+            }, 200 );
           };
 
           scope.checkboxClick = function (event, id) {
@@ -135,34 +143,34 @@
           });
 
           scope.getButtonText = function () {
-            if (scope.selectedModel.length > 0 || _.keys(scope.selectedModel).length > 0) {
-                
+            if (scope.settings.dynamicTitle && angular.isObject(scope.selectedModel) && (scope.selectedModel.length > 0 || _.keys(scope.selectedModel).length > 0)) {
               var itemsText = [];
+
               angular.forEach(scope.options, function (optionItem) {
                 if (scope.isChecked(scope.getPropertyForObject(optionItem, scope.settings.idProp))) {
                   var displayText = scope.getPropertyForObject(optionItem, scope.settings.displayProp);
-                  var converterResponse = angular.noop(displayText, optionItem);
+                  var converterResponse = scope.settings.smartButtonTextConverter(displayText, optionItem);
 
                   itemsText.push(converterResponse ? converterResponse : displayText);
                 }
-            });
+              });
+
               if (scope.selectedModel.length > scope.settings.smartButtonMaxItems) {
                 itemsText = itemsText.slice(0, scope.settings.smartButtonMaxItems);
                 itemsText.push('...');
               }
+
               return itemsText.join(', ');
-                
             } else {
               return scope.texts.buttonDefaultText;
             }
           };
 
           scope.getPropertyForObject = function (object, property) {
-              if (angular.isDefined(object) && object.hasOwnProperty(property)) {
-                  return object[property];
-              }
-
-              return '';
+            if (angular.isDefined(object) && object.hasOwnProperty(property)) {
+              return object[property];
+            }
+            return '';
           };
 
           scope.setSelectedItem = function (id, dontRemove) {

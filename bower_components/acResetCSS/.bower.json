@@ -1,0 +1,27 @@
+{
+  "name": "acResetCSS",
+  "version": "1.0.1",
+  "homepage": "https://github.com/Aerochimps/acResetCSS",
+  "authors": [
+    "Idmar Ramos Junior (Id) <idmarjr@gmail.com>"
+  ],
+  "description": "Reset default browsers styles, baset on HTL5Doctor Reset",
+  "main": "acReset.css",
+  "keywords": [
+    "HTML5",
+    "Aerochimps",
+    "reset",
+    "css"
+  ],
+  "ignore": [],
+  "license": "MIT",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "ac3896c51794ff8710ef23c17271a9106c6a21ae"
+  },
+  "_source": "https://github.com/Aerochimps/acResetCSS.git",
+  "_target": "*",
+  "_originalSource": "acResetCSS"
+}

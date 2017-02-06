@@ -71,27 +71,24 @@ a:hover,
 	color: rgb(40, 192, 255);
 	text-shadow: 0 0 40px rgba(40, 192, 255, 1);
 }
-.exampleHeader .multiselect,
-.exampleHeader .dropdown {
+.exampleHeader .multiselect {
 	font-weight: 100;
 	font-size: 18px;
 	display: inline-block;
 	margin-left: 50px;
 	opacity: .5;
 }
-.exampleHeader .multiselect:hover,
-.exampleHeader .dropdown:hover {
+.exampleHeader .multiselect a {
+	color: white;
+	text-decoration: none;
+}
+.exampleHeader .multiselect:hover {
 	opacity: 1;
 }
 .exampleHeader .multiselect strong {
 	font-style: italic;
 	color: rgb(42, 247, 233);
 	text-shadow: 0 0 40px rgb(42, 247, 233);
-}
-.exampleHeader .dropdown strong {
-	font-style: italic;
-	color: rgb(44, 244, 171);
-	text-shadow: 0 0 40px rgb(44, 244, 171);
 }
 
 /*********************************************************************/

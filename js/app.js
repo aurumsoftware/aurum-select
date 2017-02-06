@@ -4,9 +4,7 @@
 	var dependencies = ['aurum-select'];
 	angular.module('aurumSelectDemo', dependencies)
 
-		/* @ngInject */
-		.controller('aurumSelectDemoCtrl', function ($scope) {
-
+		.controller('aurumSelectDemoCtrl', ['$scope', function ($scope) {
 			$scope.mydata = [
 				{id: 1, label: 'Allan'},
 				{id: 2, label: 'André'},
@@ -17,5 +15,5 @@
 			];
 
 			$scope.mymodel = {};
-		});
+		}]);
 })();
