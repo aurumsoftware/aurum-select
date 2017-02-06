@@ -7,9 +7,6 @@ This package was forked from https://github.com/semeano/ng-dropdown-multiselect 
 * Removed dropdown and multiselect for use only the simple component of select with or without search filter.
 * See too [aurum-dropdown](#) element and [aurum-multiselect](#)
 
-###Install
-  bower install ac-dropdown-multiselect --save
-
 #Full API Documentation
 ##Attributes
 
