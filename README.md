@@ -5,10 +5,7 @@
 This package was forked from https://github.com/semeano/ng-dropdown-multiselect and the only differences from the original are:
 
 * Removed dropdown and multiselect for use only the simple component of select with or without search filter.
-* See too [aurum-dropdown](#) dropdown element and [aurum-multiselect](#) multiselect element.
-
-###Install
-  bower install ac-dropdown-multiselect --save
+* See too [aurum-multiselect](#) element.
 
 #Full API Documentation
 ##Attributes
@@ -22,6 +19,7 @@ List of allowed attributes, you can find more information about them in the usag
 | **events**          | Object       | vents callbacks, more information below. |
 | **search**          | String       | Enable search filter on dropdown with placeholder name of field search. |
 | **placeholder**     | String       | Placeholder text of the button. |
+| **dynamic-title**   | Boolean      | `false` to disable dynamic title (default true). |
 
 ##Settings
 
