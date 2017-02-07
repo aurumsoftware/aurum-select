@@ -167,6 +167,7 @@
           scope.setSelectedItem = function (object) {
             clearObject(scope.selectedModel);
             angular.extend(scope.selectedModel, object);
+            scope.externalEvents.onItemSelect(object);
             scope.open = false;
           };
 

@@ -26,6 +26,10 @@
 				{"documentText":"${Endereço_escritório}","label":"Endereço","group":0,"positionInTheGroup":8}
 			];
 
+			$scope.testEvent = function() {
+				console.log('event')
+			}
+
 			$scope.mymodel = {};
 		}]);
 })();

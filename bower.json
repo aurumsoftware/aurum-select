@@ -18,7 +18,7 @@
 		"aurum-select"
 	],
 	"license": "MIT",
-	"main": ["dist/aurum-select.min.js","dist/aurum-select.min.css"],
+	"main": ["js/aurum-select.js", "css/aurum-select/aurum-select.css", "css/aurum-select/theme.css"],
 	"ignore": [
 		"bower_components",
 		"node_modules",
