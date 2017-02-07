@@ -21,6 +21,7 @@ List of allowed attributes, you can find more information about them in the usag
 | **options**         | Object/Array | The options for the dropdown. |
 | **events**          | Object       | vents callbacks, more information below. |
 | **search**          | String       | Enable search filter on dropdown with placeholder name of field search. |
+| **label**     	  | String       | Label of object to display text item selected. |
 | **placeholder**     | String       | Placeholder text of the button. |
 | **dynamic-title**   | Boolean      | `false` to disable dynamic title (default true). |
 

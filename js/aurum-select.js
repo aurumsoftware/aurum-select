@@ -14,6 +14,7 @@
           search: '@',
           placeholder: '@',
           dynamicTitle: '@',
+          label: '@',
           ngDisabled: '='
         },
 
@@ -24,8 +25,8 @@
               // Search
               template += '<li ng-show="enableSearch"><div class="dropdown-header"><input type="text" class="form-control" style="width: 100%;" ng-model="searchFilter" placeholder="{{texts.searchPlaceholder}}" /></li>';
               template += '<li class="presentation" role="presentation" ng-repeat="option in options | filter: searchFilter">';
-              template += '<div class="menu-item" data-ng-class="{\'selected\': isChecked(getPropertyForObject(option,settings.idProp)), \'not-selected\': !isChecked(getPropertyForObject(option,settings.idProp))}">';              
-              template += '<div class="menu-item-label" role="menuitem" tabindex="-1" ng-click="setSelectedItem(getPropertyForObject(option,settings.idProp))" title="{{getPropertyForObject(option, settings.displayProp)}}" >{{getPropertyForObject(option, settings.displayProp)}}</div>';
+              template += '<div class="menu-item" data-ng-class="{\'selected\': isChecked(getPropertyForObject(option)), \'not-selected\': !isChecked(getPropertyForObject(option))}">';              
+              template += '<div class="menu-item-label" role="menuitem" tabindex="-1" ng-click="setSelectedItem(getPropertyForObject(option))" title="{{getPropertyForObject(option)}}" >{{getPropertyForObjectLabel(option, settings.displayProp)}}</div>';
               template += '</li>';
               template += '</ul>';
               template += '</div>';
@@ -43,9 +44,7 @@
           }
 
           scope.settings = {
-            displayProp: 'label',
-            idProp: 'id',
-            externalIdProp: 'id',
+            displayProp: attributes.label,
             buttonClasses: 'btn btn-default',
             dynamicTitle: scope.dynamicTitle,
             smartButtonTextConverter: angular.noop
@@ -78,29 +77,22 @@
             }, 200 );
           };
 
-          scope.checkboxClick = function (event, id) {
-              scope.setSelectedItem(id);
-              event.stopImmediatePropagation();
-          };
-
           scope.searchFilter = scope.searchFilter || '';
 
           angular.extend(scope.settings, scope.extraSettings || []);
           angular.extend(scope.externalEvents, scope.events || []);
           angular.extend(scope.texts, scope.translationTexts);
 
-          scope.singleSelection = true;
-
           function getFindObj(id) {
-              var findObj = {};
+            var findObj = {};
 
-              if (scope.settings.externalIdProp === '') {
-                  findObj[scope.settings.idProp] = id;
-              } else {
-                  findObj[scope.settings.externalIdProp] = id;
-              }
+            if (scope.settings.externalIdProp === '') {
+              findObj[scope.settings.idProp] = id;
+            } else {
+              findObj[scope.settings.externalIdProp] = id;
+            }
 
-              return findObj;
+            return findObj;
           }
 
           function clearObject(object) {
@@ -109,10 +101,8 @@
               }
           }
 
-          if (scope.singleSelection) {
-            if (angular.isArray(scope.selectedModel) && scope.selectedModel.length === 0) {
-              clearObject(scope.selectedModel);
-            }
+          if (angular.isArray(scope.selectedModel) && scope.selectedModel.length === 0) {
+            clearObject(scope.selectedModel);
           }
 
           var handleCloseOnBlur = function (e) {
@@ -147,61 +137,41 @@
               var itemsText = [];
 
               angular.forEach(scope.options, function (optionItem) {
-                if (scope.isChecked(scope.getPropertyForObject(optionItem, scope.settings.idProp))) {
-                  var displayText = scope.getPropertyForObject(optionItem, scope.settings.displayProp);
+                if (scope.isChecked(scope.getPropertyForObject(optionItem))) {
+                  var displayText = scope.getPropertyForObjectLabel(optionItem, scope.settings.displayProp);
                   var converterResponse = scope.settings.smartButtonTextConverter(displayText, optionItem);
 
                   itemsText.push(converterResponse ? converterResponse : displayText);
                 }
               });
-
-              if (scope.selectedModel.length > scope.settings.smartButtonMaxItems) {
-                itemsText = itemsText.slice(0, scope.settings.smartButtonMaxItems);
-                itemsText.push('...');
-              }
-
               return itemsText.join(', ');
             } else {
               return scope.texts.buttonDefaultText;
             }
           };
 
-          scope.getPropertyForObject = function (object, property) {
+          scope.getPropertyForObject = function (object) {
+            if (angular.isDefined(object)) {
+              return object;
+            }
+            return '';
+          };
+
+          scope.getPropertyForObjectLabel = function (object, property) {
             if (angular.isDefined(object) && object.hasOwnProperty(property)) {
               return object[property];
             }
             return '';
           };
 
-          scope.setSelectedItem = function (id, dontRemove) {
-            var findObj = getFindObj(id);
-            var finalObj = null;
-
-            if (scope.settings.externalIdProp === '') {
-              finalObj = _.find(scope.options, findObj);
-            } else {
-              finalObj = findObj;
-            }
-
+          scope.setSelectedItem = function (object) {
             clearObject(scope.selectedModel);
-            angular.extend(scope.selectedModel, finalObj);
-            scope.externalEvents.onItemSelect(finalObj);
+            angular.extend(scope.selectedModel, object);
             scope.open = false;
-
-            dontRemove = dontRemove || false;
-
-            var exists = _.findIndex(scope.selectedModel, findObj) !== -1;
-
-            if (!dontRemove && exists) {
-              scope.selectedModel.splice(_.findIndex(scope.selectedModel, findObj), 1);
-            }
           };
 
           scope.isChecked = function (id) {
-            if (scope.singleSelection) {
-              return scope.selectedModel !== null && angular.isDefined(scope.selectedModel[scope.settings.idProp]) && scope.selectedModel[scope.settings.idProp] === getFindObj(id)[scope.settings.idProp];
-            }
-            return _.findIndex(scope.selectedModel, getFindObj(id)) !== -1;
+            return scope.selectedModel !== null && angular.isDefined(scope.selectedModel) && scope.selectedModel[scope.settings.displayProp] === id[scope.settings.displayProp];
           };
 
           scope.externalEvents.onInitDone();

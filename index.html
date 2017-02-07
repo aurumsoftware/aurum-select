@@ -79,6 +79,7 @@
 				<aurum-select
 					options="mydata"
 					selected-model="mymodel"
+					label="label"
 					placeholder="Selecione um nome"
 					search="Filtrar nomes..."
 					dynamic-title="false"
@@ -101,8 +102,9 @@
 				<h2>Select without search and dynamic title</h2>
 
 				<aurum-select
-					options="mydata"
+					options="customData"
 					selected-model="mymodel"
+					label="label"
 					placeholder="Selecione um nome"
 					class="arSelect"
 					ng-disabled="false"
@@ -110,7 +112,7 @@
 
 				<h3>Object</h3>
 				<div class="exampleFeedback">
-					{{mydata}}
+					{{customData}}
 				</div><!-- End .exampleFeedback -->
 
 				<h3>Selected item</h3>
@@ -134,6 +136,7 @@
 	<!-- Scripts! :) -->
 	<script src="vendors/vendors.min.js"></script>
 	<script src="dist/aurum-select.min.js"></script>
+	<!-- <script src="js/aurum-select.js"></script> -->
 	<script src="js/app.js"></script>
 </body>
 </html>
