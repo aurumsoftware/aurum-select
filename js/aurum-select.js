@@ -26,7 +26,7 @@
               template += '<li ng-show="enableSearch"><div class="dropdown-header"><input type="text" class="form-control" style="width: 100%;" ng-model="searchFilter" placeholder="{{texts.searchPlaceholder}}" /></li>';
               template += '<li class="presentation" role="presentation" ng-repeat="option in options | filter: searchFilter">';
               template += '<div class="menu-item" data-ng-class="{\'selected\': isChecked(getPropertyForObject(option)), \'not-selected\': !isChecked(getPropertyForObject(option))}">';              
-              template += '<div class="menu-item-label" role="menuitem" tabindex="-1" ng-click="setSelectedItem(getPropertyForObject(option))" title="{{getPropertyForObject(option)}}" >{{getPropertyForObjectLabel(option, settings.displayProp)}}</div>';
+              template += '<div class="menu-item-label" role="menuitem" tabindex="-1" ng-click="setSelectedItem(getPropertyForObject(option))" title="{{getPropertyForObjectLabel(option, settings.displayProp)}}" >{{getPropertyForObjectLabel(option, settings.displayProp)}}</div>';
               template += '</li>';
               template += '</ul>';
               template += '</div>';
@@ -83,17 +83,17 @@
           angular.extend(scope.externalEvents, scope.events || []);
           angular.extend(scope.texts, scope.translationTexts);
 
-          function getFindObj(id) {
-            var findObj = {};
+          // function getFindObj(id) {
+          //   var findObj = {};
 
-            if (scope.settings.externalIdProp === '') {
-              findObj[scope.settings.idProp] = id;
-            } else {
-              findObj[scope.settings.externalIdProp] = id;
-            }
+          //   if (scope.settings.externalIdProp === '') {
+          //     findObj[scope.settings.idProp] = id;
+          //   } else {
+          //     findObj[scope.settings.externalIdProp] = id;
+          //   }
 
-            return findObj;
-          }
+          //   return findObj;
+          // }
 
           function clearObject(object) {
               for (var prop in object) {
