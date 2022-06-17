@@ -1,17 +1,17 @@
-##Important: Please keep in mind that this is an ongoing project. :)
+## Important: this project is deprecated :(
 
-#aurum-select - AngularJS Select element
+# aurum-select - AngularJS Select element
 
 This package was forked from https://github.com/semeano/ng-dropdown-multiselect and the only differences from the original are:
 
 * Removed dropdown and multiselect for use only the simple component of select with or without search filter.
 * See too [aurum-multiselect](#) element.
 
-###Install
+### Install
   bower install aurum-select --save
 
-#Full API Documentation
-##Attributes
+# Full API Documentation
+## Attributes
 
 List of allowed attributes, you can find more information about them in the usage examples above.
 
@@ -25,11 +25,11 @@ List of allowed attributes, you can find more information about them in the usag
 | **placeholder**     | String       | Placeholder text of the button. |
 | **dynamic-title**   | Boolean      | `false` to disable dynamic title (default true). |
 
-##Settings
+## Settings
 
 You dont need settings, only set `search` attribute to enable search filter and `placeholder` attribute to set button placeholder.
 
-##Events
+## Events
 
 Available event callbacks what the directive fires. These callbacks are set with `events` attribute.
 
